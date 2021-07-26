@@ -23,12 +23,14 @@ ls -la'''
     stage('test') {
       steps {
         echo 'Test running ...'
+        sh '''pwd'''
       }
     }
 
     stage('deploy') {
       steps {
         echo 'deploy....'
+        sh '''ls -a'''
       }
     }
 
