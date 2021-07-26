@@ -12,6 +12,8 @@ pipeline {
         stage('sonar') {
           steps {
             echo 'Sonar analysis'
+            sh '''echo "This is SONAR Test"
+ls -la'''
           }
         }
 
