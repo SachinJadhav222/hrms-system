@@ -23,14 +23,16 @@ ls -la'''
     stage('test') {
       steps {
         echo 'Test running ...'
-        sh 'pwd'
+        sh '''echo "This is Test stage"
+pwd'''
       }
     }
 
     stage('deploy') {
       steps {
         echo 'deploy....'
-        sh 'ls -a'
+        sh '''echo "Thsi is Delpoy......"
+ls -a'''
       }
     }
 
