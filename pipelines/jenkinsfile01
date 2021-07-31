@@ -19,4 +19,12 @@ pipeline {
             }
         }
     }
+    post {
+      success {
+         message: "Release ${env.RELEASE}, success: ${currentBuild.fullDisplayName}."
+      }
+      failure {
+         message: "Release ${env.RELEASE}, FAILED: ${currentBuild.fullDisplayName}."
+      }
+   }
 }
