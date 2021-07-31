@@ -19,7 +19,7 @@ pipeline {
                echo " Building shell scripts"
                writeFile file: "pwd-shell.sh", text: "#!/bin/bash  echo 'THIS IS FROM SHELL'"
                sh 'chmod +x pwd-shell.sh'
-               sh 'pwd'
+               sh 'whereis pwd-shell.sh'
             }
         }
    }
