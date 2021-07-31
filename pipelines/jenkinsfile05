@@ -15,7 +15,7 @@ pipeline {
         stage('Test') {
             steps {
                echo "Testing release ${RELEASE}"
-               writeFile file: 'test-result/test-results.txt', text: "passed with released ${RELEASE}  and ${currentBuild.fullDisplayName}"               
+               writeFile file: 'test-status.txt', text: "passed with released ${RELEASE}  and ${currentBuild.fullDisplayName}"               
             }
         }
    }
