@@ -16,6 +16,12 @@ pipeline {
             steps {
                echo "Testing release ${RELEASE}"
                writeFile file: 'test-status.txt', text: "passed with released ${RELEASE}  and ${currentBuild.fullDisplayName}"               
+               echo " Building shell scripts"
+               writeFile file: "pwd-shell.sh", text: "#!/bin/bash  echo 'THIS IS FROM SHELL'"
+               sh 'chmod +x pwd-shell.sh'
+               sh '''
+                     ./pwd-shell.sh
+                  '''
             }
         }
    }
