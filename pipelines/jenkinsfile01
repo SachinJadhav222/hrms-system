@@ -13,6 +13,13 @@ pipeline {
             }
         }
         stage('Test') {
+            input {
+                message 'Test Passed?'
+                ok 'Yes Passed!'
+                parameters {
+                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'LUAT', description: 'Test passe')
+                }
+            }
             steps {
                 echo "Testing. I can see release ${RELEASE}, but not log level ${LOG_LEVEL}"
             }
