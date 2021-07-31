@@ -21,7 +21,7 @@ pipeline {
    }
    post {
       success {
-         archiveArtifacts 'test-results/test-status.txt'
+         archiveArtifacts 'test-status.txt'
       }
    }
 }
