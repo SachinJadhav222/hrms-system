@@ -2,11 +2,10 @@ pipeline {
     agent any
     environment {
         RELEASE='20.04'
+        LOG_LEVEL='INFO'
     }
     stages {
-        environment {
-                LOG_LEVEL='INFO'
-            }
+        
         stage('Build') {
            
             steps {
