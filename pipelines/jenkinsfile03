@@ -37,24 +37,5 @@ pipeline {
     }
 
   }
-  stages {
-   
-    stage('test-02') {
-      steps {
-        echo 'Test running ...'
-        sh '''echo "This is Test stage"
-          pwd'''
-      }
-    }
-
-    stage('deploy-03') {
-      steps {
-        echo 'deploy....'
-        sh '''echo "Thsi is Delpoy......"
-        ls -a'''
-      }
-    }
-
-  }
-
+  
 }
