@@ -13,7 +13,7 @@ pipeline {
           steps {
             echo 'Sonar analysis'
             sh '''echo "This is SONAR Test"
-ls -la'''
+              ls -la'''
           }
         }
 
@@ -24,7 +24,7 @@ ls -la'''
       steps {
         echo 'Test running ...'
         sh '''echo "This is Test stage"
-pwd'''
+          pwd'''
       }
     }
 
@@ -32,9 +32,29 @@ pwd'''
       steps {
         echo 'deploy....'
         sh '''echo "Thsi is Delpoy......"
-ls -a'''
+        ls -a'''
       }
     }
 
   }
+  stages {
+   
+    stage('test-02') {
+      steps {
+        echo 'Test running ...'
+        sh '''echo "This is Test stage"
+          pwd'''
+      }
+    }
+
+    stage('deploy-03') {
+      steps {
+        echo 'deploy....'
+        sh '''echo "Thsi is Delpoy......"
+        ls -a'''
+      }
+    }
+
+  }
+
 }
