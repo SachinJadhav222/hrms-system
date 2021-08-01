@@ -22,7 +22,7 @@ pipeline {
 
     stage('test') {
       steps {
-        echo 'Test running ...'
+        echo 'Test running ...123'
         sh '''echo "This is Test stage"
           pwd'''
       }
