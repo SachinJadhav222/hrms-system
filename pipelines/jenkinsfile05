@@ -22,12 +22,6 @@ pipeline {
                sh 'pwd-shell.sh'
             }
         }
-        stage('Check the GIT Branch')
-        { 
-           steps{
-            echo 'Branch Name====>>> +env.BRANCH_NAME'
-          }
-         }
    }
    post {
       success {
