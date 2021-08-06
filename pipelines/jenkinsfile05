@@ -23,9 +23,11 @@ pipeline {
             }
         }
         stage('Check the GIT Branch')
-        {
-           echo ${env.BRANCH_NAME}
-        }
+        { 
+           steps{
+            echo ${env.BRANCH_NAME}
+          }
+         }
    }
    post {
       success {
