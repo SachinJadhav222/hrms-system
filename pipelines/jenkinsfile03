@@ -42,6 +42,7 @@ pipeline {
       }
       steps {
         echo 'Current Branch'
+        sh 'git checkout testing'
         sh 'git branch'
         echo 'Checking Out Master Branch'
         sh 'git checkout main'
