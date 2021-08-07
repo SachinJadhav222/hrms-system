@@ -38,11 +38,13 @@ pipeline {
     stage('GIT merge') {
        when {
         branch 'testing'
+        sh 'git branch --show-current'
       }
       steps {
         echo 'Mergin to Master main'
         echo 'Checking Out Master Branch'
         sh 'git checkout main'
+        sh 'git branch --show-current'
         echo 'Merging Testing into Master Branch'
         sh 'git merge testing'
         echo 'Pushing to Origin Master'
