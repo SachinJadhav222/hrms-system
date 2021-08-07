@@ -45,6 +45,8 @@ pipeline {
         sh 'git branch'
         echo 'Checking Out Master Branch'
         sh 'git checkout main'
+        sh 'git pull origin main'
+
         sh 'git branch'
         echo 'Merging Testing into Master Branch'
         sh 'git merge testing'
