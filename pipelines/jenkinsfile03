@@ -44,7 +44,7 @@ pipeline {
         echo 'Mergin to Master main'
         echo 'Checking Out Master Branch'
         sh 'git checkout main'
-        sh 'git branch --show-current'
+        sh 'git branch'
         echo 'Merging Testing into Master Branch'
         sh 'git merge testing'
         echo 'Pushing to Origin Master'
