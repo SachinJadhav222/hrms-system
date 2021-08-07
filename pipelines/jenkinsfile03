@@ -35,6 +35,21 @@ pipeline {
         ls -a'''
       }
     }
+    stage('GIT merge') {
+       when {
+        branch 'testing'
+      }
+      steps {
+        echo 'Mergin to Master main'
+        echo 'Checking Out Master Branch'
+        sh 'git checkout main'
+        echo 'Merging Testing into Master Branch'
+        sh 'git merge testing'
+        echo 'Pushing to Origin Master'
+        sh 'git push origin main'
+      }
+    }
+
 
   }
   
