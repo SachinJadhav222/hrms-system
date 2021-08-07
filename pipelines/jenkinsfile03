@@ -38,7 +38,7 @@ pipeline {
     stage('GIT merge') {
        when {
         branch 'testing'
-        sh 'git branch --show-current'
+        
       }
       steps {
         echo 'Mergin to Master main'
