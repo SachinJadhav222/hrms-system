@@ -1,0 +1,31 @@
+pipeline {
+   agent any
+    environment {
+      RELEASE='20.04'
+    }
+   stages {
+      stage('Build') {
+            environment {
+               LOG_LEVEL='INFO'
+            }
+            steps {
+               echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
+            }
+        }
+        stage('Test') {
+            steps {
+               echo "Testing release ${RELEASE}"
+               writeFile file: 'test-status.txt', text: "passed with released ${RELEASE}  and ${currentBuild.fullDisplayName}"               
+               echo " Building shell scripts"
+               writeFile file: "pwd-shell.sh", text: "#!/bin/bash  echo 'THIS IS FROM SHELL'"
+               sh 'chmod +x pwd-shell.sh'
+               sh 'pwd-shell.sh'
+            }
+        }
+   }
+   post {
+      success {
+         archiveArtifacts 'test-status.txt'
+      }
+   }
+}
