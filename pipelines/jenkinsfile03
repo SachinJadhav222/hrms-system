@@ -35,7 +35,7 @@ pipeline {
         ls -a'''
       }
     }
-    stage('GIT merge') {
+    stage('GIT merge to New Feature') {
        when {
         branch 'testing'
         
@@ -44,13 +44,33 @@ pipeline {
         echo 'Current Branch'
         sh 'git checkout testing'
         sh 'git branch'
+        echo 'Checking Out Feature'
+        sh 'git checkout new-feature'
+        sh 'git pull origin new-feature'
+
+        sh 'git branch'
+        echo 'Merging Testing into new feature Branch'
+        sh 'git merge testing'
+        echo 'Pushing to Origin Master'
+        sh 'git push origin new-feature'
+      }
+    }
+    stage('GIT merge to Main') {
+       when {
+        branch 'new-feature'
+        
+      }
+      steps {
+        echo 'Current Branch'
+        sh 'git checkout new-feature'
+        sh 'git branch'
         echo 'Checking Out Master Branch'
         sh 'git checkout main'
         sh 'git pull origin main'
 
         sh 'git branch'
         echo 'Merging Testing into Master Branch'
-        sh 'git merge testing'
+        sh 'git merge new-feature'
         echo 'Pushing to Origin Master'
         sh 'git push origin main'
       }
